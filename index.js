@@ -40,7 +40,7 @@ function clearPage() {
 
 function loadSuccessState(email) {
   const container = createElement("div", ["flex", "fl-between", "fl-column", "success-card"]);
-//   container.style.height = "100vh";
+  container.style.paddingBottom = "1.5rem";
   const messageContainer = createElement("div", [
     "flex",
     "fl-column",
@@ -59,9 +59,10 @@ function loadSuccessState(email) {
   );
 
   const button = createElement("button", ["bold"], "Dismiss message");
+  button.style.margin = '1rem 0';
 
-  messageContainer.append(successImage, header, description);
-  container.append(messageContainer, button);
+  messageContainer.append(successImage, header, description, button);
+  container.append(messageContainer);
   document.getElementsByTagName("main")[0].append(container);
 
   console.log(container);

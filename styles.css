@@ -133,7 +133,7 @@ li {
 .info {
     justify-content: center;
     margin: 2rem auto;
-    padding: 0;
+    padding: 1rem 2rem;
 }
 
 .bold {
@@ -147,6 +147,8 @@ li {
 
 .success-container {
     margin: auto;
+    gap: 2rem;
+    width: 90%;
 }
 
 
@@ -183,6 +185,7 @@ picture {
     .info {
         order: 1;
         margin-left: 3rem;
+        padding: 0;
     }
 
     .card-img {
