@@ -19,6 +19,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   const errorMessage = e.target.parentNode.querySelector(".error");
   const input = form["email"];
+  let value = form["email"].value;
   if (form["email"].checkValidity()) {
     errorMessage.classList.remove("active");
     input.classList.remove("invalid");

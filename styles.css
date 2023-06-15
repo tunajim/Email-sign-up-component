@@ -28,11 +28,6 @@ h1 {
     line-height: 1;
 }
 
-.hero {
-    background-image: url(assets/images/illustration-sign-up-mobile.svg);
-    background-size: cover;
-    width: 100%;
-}
 
 /* FLEX STYLES */
 
@@ -121,7 +116,7 @@ ul {
 li {
     /* display: flex; */
     /* vertical-align: top; */
-    background-image: url(/assets/images/icon-list.svg);
+    background-image: url(assets/images/icon-list.svg);
     background-repeat: no-repeat;
     background-position: 0 2px;
     padding-left: 2rem;
