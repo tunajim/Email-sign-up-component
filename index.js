@@ -2,32 +2,36 @@ const form = document.forms["sign-up-form"];
 
 console.log(form["email"].checkValidity());
 
-form["email"].addEventListener("invalid", (e) => {
-  const errorMessage = e.target.parentNode.querySelector(".error");
-  errorMessage.classList.add("active");
-  e.target.classList.add("invalid");
-});
-
-form["email"].addEventListener("valid", (e) => {
-  const errorMessage = e.target.parentNode.querySelector(".error");
-  errorMessage.classList.remove("active");
-  console.log(e.target);
-  e.target.classList.remove("invalid");
-});
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const errorMessage = e.target.parentNode.querySelector(".error");
   const input = form["email"];
+  const email = form["email"].value;
   let value = form["email"].value;
   if (form["email"].checkValidity()) {
-    errorMessage.classList.remove("active");
-    input.classList.remove("invalid");
-    const email = form["email"].value;
+    removeFormError(errorMessage, input);
     clearPage();
     loadSuccessState(email);
+  } else {
+    activateFormError(errorMessage, input);
   }
 });
+
+function activateFormError(error, input) {
+  error.classList.add("active");
+  input.classList.add("invalid");
+}
+
+function removeFormError(error, input) {
+  if (error.classList.contains("active")) {
+    error.classList.remove("active");
+  }
+
+  if (input.classList.contains("invalid")) {
+    input.classList.remove("invalid");
+  }
+  const email = form["email"].value;
+}
 
 function clearPage() {
   const main = document.getElementsByTagName("main")[0];
@@ -40,7 +44,12 @@ function clearPage() {
 }
 
 function loadSuccessState(email) {
-  const container = createElement("div", ["flex", "fl-between", "fl-column", "success-card"]);
+  const container = createElement("div", [
+    "flex",
+    "fl-between",
+    "fl-column",
+    "success-card",
+  ]);
   container.style.paddingBottom = "1.5rem";
   const messageContainer = createElement("div", [
     "flex",
@@ -60,13 +69,11 @@ function loadSuccessState(email) {
   );
 
   const button = createElement("button", ["bold"], "Dismiss message");
-  button.style.margin = '1rem 0';
+  button.style.margin = "1rem 0";
 
   messageContainer.append(successImage, header, description, button);
   container.append(messageContainer);
   document.getElementsByTagName("main")[0].append(container);
-
-  console.log(container);
 }
 
 function createElement(el, arr, message) {
@@ -74,7 +81,6 @@ function createElement(el, arr, message) {
 
   if (arr) {
     for (let i = 0; i < arr.length; i++) {
-      console.log({ i });
       elem.classList.add(`${arr[i]}`);
     }
   }
