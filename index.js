@@ -1,7 +1,5 @@
 const form = document.forms["sign-up-form"];
 
-console.log(form["email"].checkValidity());
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const errorMessage = e.target.parentNode.querySelector(".error");

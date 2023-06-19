@@ -47,6 +47,26 @@ h1 {
     justify-content: space-between;
 }
 
+/* --------------- */
+/* LIST STYLES */
+
+ul {
+    list-style: none;
+    gap: 1rem;
+}
+
+li {
+    background-image: url(assets/images/icon-list.svg);
+    background-repeat: no-repeat;
+    background-position: 0 2px;
+    padding-left: 2rem;
+    margin: 1rem 0;
+    min-height: 2rem;
+}
+
+/* ------------ */
+
+
 .error {
     display: none;
     color: hsl(4, 100%, 67%);
@@ -105,25 +125,6 @@ button:hover {
 label {
     margin: 0;
 }
-
-/* LIST STYLES */
-
-ul {
-    list-style: none;
-    gap: 1rem;
-}
-
-li {
-    /* display: flex; */
-    /* vertical-align: top; */
-    background-image: url(assets/images/icon-list.svg);
-    background-repeat: no-repeat;
-    background-position: 0 2px;
-    padding-left: 2rem;
-    margin: 1rem 0;
-    min-height: 2rem;
-}
-
 
 .info {
     justify-content: center;
